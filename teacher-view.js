@@ -1,26 +1,5 @@
 $(function () {
-  // When a cell is edited, send the new data to the server
-  $("td[contenteditable]").on("blur", function () {
-    var cell = $(this);
-    var row = cell.closest("tr");
-    var data = {
-      column: cell.index(),
-      value: cell.text(),
-    };
-    // Send an AJAX request to the server to save the data
-    $.ajax({
-      url: "/save-data",
-      method: "POST",
-      data: data,
-      success: function (response) {
-        console.log("Data saved successfully");
-      },
-      error: function (xhr, status, error) {
-        console.error("Error saving data:", error);
-      },
-    });
-  });
-
+  
   const gradesTds = document.querySelectorAll(".grades");
   // Add event listener for "keydown" on each td element
   gradesTds.forEach((td) => {
@@ -76,6 +55,9 @@ $(function () {
     }
     gradesheet.appendChild(newRow);
   };
+
+  //add default rows
+  for(let i = 0; i < 10; i++){addNewStudent()}
 
   tokenButton.addEventListener("click", tokenButtonHandler);
   prinoutButton.addEventListener("click", printoutHandler);
