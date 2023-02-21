@@ -1,0 +1,34 @@
+table,
+th,
+td,
+.rotate-text {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.rotate-text {
+  transform: rotate(180deg);
+  /*transform-origin: left top;*/
+  white-space: nowrap;
+  width: 1px;
+  /* height: 100%; */
+  writing-mode: vertical-lr;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.grades {
+  text-align: center;
+}
+
+#new-student {
+  resize: none;
+  overflow: hidden;
+  text-align: left;
+}
+
+#student-search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
