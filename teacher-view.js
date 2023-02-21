@@ -1,9 +1,4 @@
 $(function () {
-  var tdList = document.querySelectorAll("td.grades");
-  // loop through the td elements and set their contenteditable property to true
-  for (var i = 0; i < tdList.length; i++) {
-    tdList[i].setAttribute("contenteditable", "true");
-  }
   // When a cell is edited, send the new data to the server
   $("td[contenteditable]").on("blur", function () {
     var cell = $(this);
@@ -40,6 +35,22 @@ $(function () {
     });
   });
 
-  let gradesheet = document.getElementById("gradesheet");
-  
+  const tokenButton = document.getElementById("token-button");
+  tokenButtonOnClick = function (event) {
+    var token = $("#token-text").val();
+    const accessToken = "token";
+    console.log(token);
+    console.log(accessToken);
+    if (token == accessToken) {
+      alert("You are now in edit mode. Click on a grade to edit it.");
+      var tdList = document.querySelectorAll("td.grades");
+      // loop through the td elements and set their contenteditable property to true
+      for (var i = 0; i < tdList.length; i++) {
+        tdList[i].setAttribute("contenteditable", "true");
+      }
+    } else {
+      alert("Invalid token. Please try again.");
+    }
+  };
+  tokenButton.addEventListener("click", tokenButtonOnClick);
 });

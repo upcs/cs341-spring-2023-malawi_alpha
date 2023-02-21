@@ -27,8 +27,16 @@ td,
   text-align: left;
 }
 
-#student-search {
+#control-center {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+#token-text {
+  margin-left: 40px;
+}
+
+#control-center #printout-button {
+  margin-left: 480px;
 }
