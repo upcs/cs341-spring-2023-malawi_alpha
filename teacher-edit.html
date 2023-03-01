@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<! --written by alex with some help from Jayven-->
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="teacher-edit.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="teacher-edit.js"></script>
+    </head>
+    <body>
+        <! -- form to select which class to edit -->
+        <form>
+            <label for="class-select">Select a class:</label>
+            <select id="class-select">
+              <option value="English">English</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Biology">Biology</option>
+              <option value="Maths">Maths</option>
+              <option value="Social Studies">Social Studies</option>
+              <option value="History">History</option>
+              <option value="Geography">Geography</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Bible Knowledge">Bible Knowledge</option>
+              <option value="Chichewa">Chichewa</option>
+              <option value="French">French</option>
+              <option value="Computer Studies">Computer Studies</option>
+              <option value="Life Skills">Life Skills</option>
+            </select>
+          </form>
+          <br>
+          <! -- dropdown for specific class, will bring up list of students, with a single grade field and a single comments field. Add savechange button, add student button -->      
+    <table width="100%" id="gradesheet">
+        <thead id="gradesheet-header"></thead>
+        <tbody id="gradesheet-body">
+          <tr>
+            <td class=>Name</td>
+            <td class=>Grade</td>
+            <td class=>Behavior</td>
+          </tr>
+        </tbody>
+      </table> 
+      <br>
+      <! -- add student button  and save button-->
+        <button id="add-student">Add Student</button> 
+        <br>
+        <button id="save-button">Save Changes</button>
+    </body>
+    </html>
