@@ -1,6 +1,6 @@
 <!-- change host user and password -->
 <?php
-    $host = "localhost";
+    $host = "10.12.116.141";
     $user = "malawiTest";
     $password = 'test';
     $db_name = "testMalawi";
