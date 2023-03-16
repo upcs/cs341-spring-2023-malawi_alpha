@@ -1,5 +1,6 @@
 <!-- change host user and password -->
 <?php
+
     $host = "localhost";
     $user = "root";
     $password = 'cs341mwalpha';
