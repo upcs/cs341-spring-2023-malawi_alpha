@@ -4,82 +4,46 @@ session_start();
 
 include "connection.php";
 
-// Checks to see if both fields were set if not then it redirects
+//checks to see if field is empty
+
 if (isset($_POST['token'])) {
+	// Creates validation function
+	function validate($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+		}
 
-    function validate($data){
-
-       $data = trim($data);
-
-       $data = stripslashes($data);
-
-       $data = htmlspecialchars($data);
-
-       return $data;
-
-    }
-
-    $token = validate($_POST['token']);
-
-    if (empty($token)) {
-
-        header("Location: homepage.php?error=Token is required");
-
-        exit();
-
-    }else{
-    // Turns the entered token into a hash then checks to see if the token matches the login database
-$token = hash('ripemd160', $token);
-
-        $sql = "SELECT * FROM tokenTbl WHERE token='$token'";
-
-        $result = mysqli_query($con, $sql);
-
-        if (mysqli_num_rows($result) == 1) {
-
-            $row = mysqli_fetch_assoc($result);
-
-            if ($row['token'] == $token) {
-
-// Sets a cookie that expires in 10 seconds so it's easier to check if cookie expires and works
-                echo "Logged in!";
-                setcookie("token", $row['token'], time() + 10);
-
-                $_SESSION['token'] = $row['token'];
-
-
-                $ID = mysqli_real_escape_string($con, $_GET['ID']);
-                if (!isset($ID) || $ID == "") {
-                header("Location: newHomepage.php");
-                }
-                else {
-                header("Location: bidding.php?ID=".$ID."");
-                }
-
-                exit();
-
-            }else{
-
-                header("Location: index.php?error=Incorect User name or password");
-
-                exit();
-
-            }
-
-        }else{
-
-            header("Location: index.php?error=Incorect User name or password");
-
-            exit();
-
+	$token = validate($_POST['token']);
+	$token = hash('ripemd160', $token);
+	$sql = "SELECT * FROM TokenTbl WHERE Token = '$token'";
+	$result = mysqli_query($con, $sql);
+	$numRows = mysqli_num_rows($result);
+	if ($numRows == 1) {
+		$currentRow = mysqli_fetch_assoc($result);
+		echo "Logged in!";
+        setcookie("Token", $currentRow['Token'], time() + 10);
+		$_SESSION['Token'] = $currentRow['Token'];
+		
+		if ($currentRow['UserType'] == "teacher") {
+				header("Location: teacher-view.php");
+		}
+		else if ($currentRow['UserType'] == "admin") {
+				header("Location: admin-view.php");
+		}
+	
+	}
+	else{
+		header("Location: index.php?error=Incorrect Token or more than 2 tokens exist");
+		exit();
         }
+}
+else{
 
-    }
-
-}else{
-
-    header("Location: index.php");
+    header("Location: index.html");
 
     exit();
 
 }
+?>
