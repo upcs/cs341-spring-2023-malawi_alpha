@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <?php
+use Symfony\Component\Console\Helper\TableCell;
+use Symfony\Component\Console\Helper\TableRows;
 
-require_once 'view-functionality.php';
+require 'view-functionality.php';
+
 $pressed = false;
 if (isset($_POST['printout-button'])) {
-
-
   // Redirect the user to printout.php
   header("Location: printout.php", true);
   exit();
@@ -14,16 +15,28 @@ if (isset($_POST['printout-button'])) {
 
 
 if (isset($_POST['new-student-button'])) {
-  //echo "<h1>Button has been clicked</h1>";
-  $pressed = true;
-}
-
-if($pressed) {
-
   newStudentButton();
-  $pressed = false;
 }
 
+$password = "token";
+if (isset($_POST['token-button'])) {
+    $token = $_POST['token-text'];
+
+    $pressed = true;
+    if (strlen(trim($token)) == 0) {
+        echo '<script>alert("Token is empty");</script>';
+    } else {
+        if(!preg_match('/^[a-zA-Z0-9]+$/', $token)) {
+            echo '<script>alert("Token contains invalid characters");</script>';
+        } else {
+            if(strcmp($token, $password) == 0) {
+                echo '<script>alert("Token is correct");</script>';
+            } else {
+                echo '<script>alert("Token is incorrect");</script>';
+            }
+        }
+    }
+}
 
 ?>
 
@@ -31,7 +44,7 @@ if($pressed) {
 
 <head>
   <meta charset="utf-8" />
-  <title>Teacher View</title>
+  <title id="title">Teacher View</title>
   <link rel="stylesheet" href="teacher-view.css" />
 </head>
 
@@ -79,8 +92,8 @@ if($pressed) {
       <textarea id="new-student" cols="30" rows="1"></textarea>
       <button type="submit" id="search-student-button">Search Student</button>
 
-      <textarea id="token-text" cols="40" rows="1"></textarea>
-      <button type="submit" id="token-button">Enter Token</button>
+      <textarea id="token-text" cols="40" rows="1" name="token-text"></textarea>
+      <button type="submit" id="token-button" name="token-button">Enter Token</button>
       <button type="submit" id="new-student-button" name="new-student-button">New Student</button>
       <button type="submit" id="printout-button" name="printout-button">View Print Out</button>
     </div>

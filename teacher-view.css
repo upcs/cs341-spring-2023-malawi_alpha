@@ -35,6 +35,9 @@ td,
 
 #token-text {
   margin-left: 40px;
+  resize: none;
+  overflow: hidden;
+  text-align: left;
 }
 
 #control-center #printout-button {
