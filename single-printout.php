@@ -53,7 +53,7 @@ include 'connection.php';
 
             //Student Name
             echo "<tr>";
-            echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
+            echo "<td name=\"name-text\">" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
             echo "</tr>";
             echo "</table>";
 
