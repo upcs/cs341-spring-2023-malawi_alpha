@@ -3,10 +3,6 @@ table, th, td {
     border-collapse: collapse;  
 }
 
-#edit-token-button {
-    margin-right: 40px;
-}
-
 #generate-token-button  {
     margin-right: 40px;
 }
