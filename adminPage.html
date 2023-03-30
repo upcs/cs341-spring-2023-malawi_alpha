@@ -6,14 +6,16 @@
         <title>Admin Token Page</title>
         <link rel="stylesheet" href="adminPage.css" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!--JAVASCRIPT CODE-->
         <script src="adminPage.js"></script>
+
+        
     </head>
 
     <body>
-
+        <!--Include PHP file-->
+        <?php include 'adminPage.php';?>
         <div id="tokensheet-body-cc">
-            <!--edit token button-->
-            <button type="submit" id="edit-token-button">Edit Token</button>
 
             <!--Generate a new token-->
             <button type="submit" id="generate-token-button">Generate New Token</button>
