@@ -1,0 +1,19 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;  
+}
+
+#edit-token-button {
+    margin-right: 40px;
+}
+
+#generate-token-button  {
+    margin-right: 40px;
+}
+
+#token-entry    {
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 20px;
+}
+

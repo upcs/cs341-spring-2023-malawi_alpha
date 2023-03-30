@@ -1,8 +1,41 @@
+$(document).ready(function() {
+  const $classSelect = $('#class-select');
+  const $gradesheetHeader = $('#gradesheet-header');
+  const $gradesheetBody = $('#gradesheet-body');
+
+  function fetchGrades(selectedClass) {
+    $.getJSON('/cgi-bin/get_grades.py', { class: selectedClass }, function(grades) {
+      updateGradesheet(grades);
+      });
+  }
+
+  function updateGradesheet(grades) {
+      $gradesheetHeader.empty();
+      $gradesheetBody.empty();
+
+      $gradesheetHeader.append(`<tr><th>Name</th><th>Grade</th><th>Behavior</th></tr>`);
+
+      $.each(grades, function(index, student) {
+          $gradesheetBody.append(`<tr><td>${student.name}</td><td>${student.grade}</td><td>${student.behavior}</td></tr>`);
+      });
+  }
+
+  $classSelect.on('change', function() {
+      fetchGrades($(this).val());
+  });
+
+  // Initial load
+  fetchGrades($classSelect.val());
+});
 
 
+
+/*
 $(function () {
 //change this to make a POST request to the server and get actual data
-addEditableStudent = function (event) {
+loadClass = function (event) {
+    
+  
     console.log("new student button clicked");
     let length = gradesheet.rows.length;
     var table_width = gradesheet.rows[0].cells.length;
@@ -18,23 +51,23 @@ addEditableStudent = function (event) {
       newRow.appendChild(newCell); // Append the new cell to the new row
     }
     gradesheet.appendChild(newRow);
+    
   };
-  //add default rows
-  //skelelton code for adding a student
-  const add_student_button = document.getElementById("add-student");
-  add_student_button.addEventListener("click", addEditableStudent);
-
-  //skeleton code for saving data
+  
+  //saving data to database
   const save_button = document.getElementById("save-button");
   save_button.addEventListener("click", function () {
-  //TODO: make this actually save the data and verify database is updated  
+  //TODO: make this actually save the data and verify database is updated 
+   
     if(true){
       window.alert("Saved!");
     }else{
       window.alert("Not saved");
     }
   });
-  for(let i = 0; i < 10; i++){addEditableStudent()}
+  
+  
+  for(let i = 0; i < 10; i++){loadClass()}
   const class_selector = document.getElementById("class-select");
   class_selector.addEventListener("change", function () {
     const selected_class = class_selector.value;
@@ -43,7 +76,8 @@ addEditableStudent = function (event) {
     var gradesheet = document.getElementById("gradesheet");
     gradesheet.style.display = "block";
     save_button.style.display = "block";
-    add_student_button.style.display = "block";
+    //add_student_button.style.display = "block";
   });
   
 });
+**/
