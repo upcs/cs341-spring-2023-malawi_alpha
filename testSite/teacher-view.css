@@ -1,0 +1,105 @@
+table,
+th,
+td,
+.rotate-text {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.rotate-text {
+  transform: rotate(180deg);
+  /*transform-origin: left top;*/
+  white-space: nowrap;
+  width: 1px;
+  /* height: 100%; */
+  writing-mode: vertical-lr;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.grades {
+  text-align: center;
+}
+
+#new-student {
+  resize: none;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 10px;
+}
+
+#control-center {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#token-text {
+  margin-left: 10px;
+  resize: none;
+  overflow: hidden;
+  text-align: left;
+}
+
+#control-center #printout-button {
+  margin-left: 480px;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+
+.controlArea {
+	margin-left: 200px;
+	padding-left: 20px;
+	display: inline-block;
+}
+
+
+
+
