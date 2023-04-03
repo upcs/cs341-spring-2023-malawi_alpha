@@ -8,6 +8,7 @@ td,
 
 .rotate-text {
   transform: rotate(180deg);
+  /*transform-origin: left top;*/
   white-space: nowrap;
   width: 1px;
   /* height: 100%; */
@@ -20,7 +21,7 @@ td,
   text-align: center;
 }
 
-#new-student {
+.edit-box {
   resize: none;
   overflow: hidden;
   text-align: left;
@@ -33,26 +34,11 @@ td,
   margin-bottom: 10px;
 }
 
-#token-form {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 #token-text {
-  width: 70%;
   margin-left: 10px;
   resize: none;
   overflow: hidden;
   text-align: left;
-  display: inline-block;
-  vertical-align: top;
-}
-
-#token-button {
-  display: inline-block;
-  width: 28%;
-  margin-left: 2%;
-  vertical-align: top;
 }
 
 #control-center #printout-button {
@@ -86,33 +72,19 @@ body {
   overflow-x: hidden;
 }
 
-
-/* Side navigation links */
-.sidenav a {
-  color: white;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-  
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  width: 400px;
 }
 
-/* Change color on hover */
-.sidenav a:hover {
-  background-color: #ddd;
-  color: black;
+.form-container button {
+  margin-left: 10px;
 }
 
-/* Style the content */
-.content {
-  margin-left: 200px;
-  padding-left: 20px;
-}
-
-.controlArea {
-	margin-left: 200px;
-	padding-left: 20px;
-	display: inline-block;
-}
-
-
-
+/* #printout-form {
+  padding-top: 110px;
+  padding-left: 10px;
+} */

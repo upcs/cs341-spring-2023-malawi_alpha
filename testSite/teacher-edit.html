@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title id="title">Teacher Edit</title>
+  <link rel="stylesheet" href="teacher-edit.css?v=1.0" />
+</head>
+
+<body>
+  <form>
+    <label for="class">Class</label>
+    <select name="class" id="class">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+    <label for="term">Term</label>
+    <select name="term" id="term">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <label for="year">Year</label>
+    <select name="year" id="year">
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+      <option value="2028">2028</option>
+      <option value="2029">2029</option>
+      <option value="2030">2030</option>
+    </select>
+    <br /><br />
+  </form>
+
+  <div class="form-container">
+    <form method="POST">
+      <div class="controlArea">
+        <textarea class="edit-box" cols="30" rows="1" placeholder="placeholder"></textarea> <br />
+        <textarea class="edit-box" cols="30" rows="1" name="token-text" placeholder="placeholder"></textarea> <br />
+        <textarea class="edit-box" cols="30" rows="1" name="token-text" placeholder="placeholder"></textarea> <br />
+        <textarea class="edit-box" cols="30" rows="1" name="token-text" placeholder="placeholder"></textarea> <br />
+        <textarea class="edit-box" cols="30" rows="1" name="token-text" placeholder="placeholder"></textarea>
+      </div>
+      <button type="submit" id="update-grade-button">Update Grades</button>
+    </form>
+  
+    <form method="POST" action="single-printout.py" id="printout-form">
+      <div>
+        <button type="submit" id="printout-button" name="printout-button">View Print Out</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>

@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <title id="title">Teacher View</title>
-    <link rel="stylesheet" href="teacher-view.css" />
+    <!-- This makes sure browser always fetches css from server -->
+    <!-- Make sure to change back -->
+    <link rel="stylesheet" href="teacher-view.css?v=1.0" />
 </head>
 
 <body>
@@ -51,8 +53,11 @@
         <textarea id="new-student" cols="30" rows="1"></textarea>
         <button type="submit" id="search-student-button">Search Student</button>
 
-        <textarea id="token-text" cols="40" rows="1" name="token-text"></textarea>
-        <button type="submit" id="token-button" name="token-button">Enter Token</button>
+        <form method="POST" action="http://10.12.116.141/teacher-view.py" id="token-form">
+            <textarea id="token-text" cols="40" rows="1" name="token-text"></textarea>
+            <button type="submit" id="token-button" name="token-button">Enter Token</button>
+        </form>
+
         <button type="submit" id="new-student-button" name="new-student-button">New Student</button>
         <form method="POST" action="./all-printout.py" class="form-control">
             <button type="submit" id="printout-button" name="printout-button">View PrintOut</button>
