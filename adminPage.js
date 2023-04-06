@@ -49,11 +49,6 @@ $(function(){
         }
     };
 
-    saveButtonHandler = function (event){
-        console.log("Save button clicked");
-        window.alert("All changes have been saved, it is now safe to exit.");
-    }
-
     tokenEntry.addEventListener("change", tokenEntryHandler);
     //generateTokenButton.addEventListener("click", generateTokenHandler);
     //saveButton.addEventListener("click", saveButtonHandler);
