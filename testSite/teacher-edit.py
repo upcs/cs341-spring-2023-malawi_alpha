@@ -20,34 +20,36 @@ def printGrades():
     cursor.execute(sql)
     result = cursor.fetchall()
     queryResults = cursor.rowcount
+
+    print("<form method=POST action=single-printout.py?ID=" + str(id_value) + " "+ "id=printout-form>")
+    print("<div>")
+    print("<button type=submit id=printout-button name=printout-button> View Print Out </button >")
+    print("</div>")
+    print("</form>")
     
-    if(queryResults > 0):
-        
+    if (queryResults > 0):
+
         # Create dictionary of column names``
         col_names = [desc[0] for desc in cursor.description]
-        
-        
+
         for row in result:
-            print("<h3 name='name-section'>" , row[col_names.index("FirstName")] , " " , row[col_names.index("LastName")] , "'s grades</h3>")
+            print("<h3 name='name-section'>", row[col_names.index(
+                "FirstName")], " ", row[col_names.index("LastName")], "'s grades</h3>")
             print("<table>")
             for c_name in col_names:
                 if c_name == 'StudentID' or c_name == 'FirstName' or c_name == 'LastName':
                     continue
-                
+
                 data = row[col_names.index(c_name)]
                 if data == None:
                     data = "&nbsp;"
                 print("<tr>")
                 print("<td>", c_name, "</td>")
-                print("<td>", data , "</td>")
+                print("<td>", data, "</td>")
                 print("</tr>")
-                
-                
+
     print("<table>")
-    
-    
-    
-    
+
 
 print("Content-type: text/html")
 print("")

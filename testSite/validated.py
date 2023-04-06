@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 import cgi
-import connection 
+import connection
 
-            
-def printTable():
+def printEdit():
     
     cursor = connection.connect()
     sql = "SELECT * FROM GradeTbl"
@@ -44,18 +43,15 @@ def printTable():
                 data = row[col_names.index(col)]
                 if(data == None):
                     data = "&nbsp;"
-                print("<td>" + data + "</td>")
+                print("<td contenteditable=\"true\">" + data + "</td>")
             print("</tr>")
         print("</tr>")
         
         
     print("</table>")
     cursor.close()
-    
-    
+
 print("Content-type: text/html")
 print("")
 print(open('teacher-view.html').read())
-printTable()
-
-
+printEdit()

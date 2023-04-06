@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Admin Token Page</title>
+        <link rel="stylesheet" href="adminPage.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!--JAVASCRIPT CODE-->
+        <script src="adminPage.js"></script>
+
+        
+    </head>
+
+    <body>
+        <!--Include PHP file-->
+        <?php include 'adminPage.php';?>
+        <div id="tokensheet-body-cc">
+
+            <!--Generate a new token-->
+            <button type="submit" id="generate-token-button">Generate New Token</button>
+
+            <!--Save Button-->
+            <button type="submit" id="save-button">Save</button>
+
+            <!--Token entry fior admin-->
+            <textarea id="token-entry" cols="30" rows="1" placeholder="Admin Token"></textarea>
+            <button type="submit" id="token-submission">Enter Token</button>
+        </div>
+        <br>
+        <br>
+        
+
+        <!--Table of teachers and their associated tokens-->
+        <table width = "100%" id="tokensheet">
+            <tbody id="tokensheet-body">
+            <tr>
+                <td>Token ID</td>
+                <td>Classes</td>
+                <td>Teacher Currently Using</td>
+            </tr>
+            
+            <!--Hard coding some temporary examples-->
+            <!--Row 1-->
+            <tr>
+                <td>345987</td>
+                <td>
+                    <ul>
+                        <li>Math</li>
+                        <li>Social Science</li>
+                        <li>English</li>
+                    </ul>
+                </td>
+                <td>Mr. Marc</td>
+            </tr>
+
+            <!--Row 2-->
+            <tr>
+                <td>192837</td>
+                <td>
+                    <ul>
+                        <li>Biology</li>
+                        <li>Chichewa</li>
+                        <li>Computer Skills</li>
+                    </ul>
+                </td>
+                <td>Mr. Anthony</td>
+            </tr>
+
+            <!--Row 3-->
+            <tr>
+                <td>673894</td>
+                <td>
+                    <ul>
+                        <li>Geography</li>
+                        <li>Bible Knowledge</li>
+                        <li>Life Skills</li>
+                    </ul>
+                </td>
+                <td>Mr. Banda</td>
+            </tr>
+            
+            <!--Row 4-->
+            <tr>
+                <td>245794</td>
+                <td>
+                    <ul>
+                        <li>Agriculture</li>
+                        <li>Chemistry</li>
+                        <li>Physics</li>
+                    </ul>
+                </td>
+                <td>Mr. Mawawa</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </body>
+</html>
+
