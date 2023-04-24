@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title id="title">Editing Grades View</title>
+    <link rel="stylesheet" href="update-view.css?v=1.0" />
+</head>
+
+<body>
+    <div id="control-center">
+        <br>
+        <div class="button-container"> 
+            <form method="POST" action="./all-printout.py" class="form-control">
+                <button type="submit" id="printout-button" name="printout-button">View PrintOut</button>
+            </form>
+
+            <form method="POST" action="./teacher_view.py" class="form-control">
+              <button type="submit" id="return-button" name="return-button">Return to Main Page</button>
+          </form>
+        </div>
+    </div>
+</body>
+</html>

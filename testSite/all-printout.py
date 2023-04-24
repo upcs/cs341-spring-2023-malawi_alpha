@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from math import floor
 import connection
 
 def displayPrinout():
@@ -10,13 +9,12 @@ def displayPrinout():
     result = cursor.fetchall()
     queryResults = cursor.rowcount
     col_names = [desc[0] for desc in cursor.description]
-    other = 0
     
+    print('<div class="parent-container">')
     if(queryResults > 0):
-
             for row in result:
-            
-                print("<table width=\"45%\" id=\"header-table\">")
+                print('<div class="student-container">')
+                print("<table id=\"header-table\">")
                 print("<tr>")
                 print("<td class=\"header\">St. Mary's Karonga Girls Sec. School</td>")
                 print("</tr>")
@@ -42,14 +40,14 @@ def displayPrinout():
                 # # Student Name
                 firstName = str(row[col_names.index("FirstName")])
                 lastName = str(row[col_names.index("LastName")])    
-                print("<table width=\"50%\" id=\"name-section\">")
+                print("<table id=\"name-section\">")
                 print("<tr>")
                 print("<td>" + firstName + " " + lastName + "</td>")
                 print("</tr>")
                 print("</table>")
                     
                 # Header Table
-                print("<table width=\"50%\" id=\"grades-section\">")
+                print("<table id=\"grades-section\">")
                 print("<th class = \"grades-header\" >SUBJECTS</th>")
                 print("<th class = \"grades-header\" >MARKS(%)</th>")
                 print("<th class = \"grades-header\" >GRADE</th>")
@@ -84,7 +82,8 @@ def displayPrinout():
 
                 print("</table>") # End of the whole table
                 print("<br>")
-            
+                print('</div>')
+    print('</div>')
     cursor.close()    
 print("Content-type: text/html")
 print("")

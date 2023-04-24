@@ -2,7 +2,6 @@
 import cgi
 import connection
 
-
 print('Content-type: text/html\r')
 print("")
 print("<h1>Update Grades</h1>")
@@ -12,12 +11,6 @@ print("</form >")
 
 dataset = cgi.FieldStorage()
 cursor = connection.connect()
-sql = "SELECT FirstName,LastName FROM GradeTbl"
-cursor.execute(sql)
-result = cursor.fetchall()
-queryResults = cursor.rowcount
-col_names = [desc[0] for desc in cursor.description]
-
 
 data = {}
 
@@ -26,21 +19,22 @@ for key in dataset.keys():
     data[key] = values
 
 success = True
-for j in range(cursor.rowcount):
+student_ids = data['StudentID']
+
+for i, student_id in enumerate(student_ids):
     currQuery = "UPDATE GradeTbl SET "
     for key in data.keys():
-        toAdd = data[key][j]
         if key == 'StudentID':
             continue
+        toAdd = data[key][i]
         if toAdd == '.':
             toAdd = 'NULL'
         else:
             toAdd = toAdd.strip()
-            toAdd = "'" + toAdd + "'"
-        currQuery += " " + key + " = " + toAdd + ", "   
-    currQuery = currQuery.rstrip(", ")  
-    currQuery += " WHERE StudentID = " + str(j+1) + ";"
-    # print(currQuery)
+            # toAdd = "'" + toAdd + "'"
+        currQuery += " " + key + " = " + toAdd + ", "
+    currQuery = currQuery.rstrip(", ")
+    currQuery += " WHERE StudentID = " + student_id + ";"
     try:
         cursor.execute(currQuery)
         cursor.connection.commit()
@@ -54,6 +48,9 @@ for j in range(cursor.rowcount):
 
 if success:
     print("Grades updated successfully.")
+    print("Click the button to return to the main page.")
+else:
+    print("Grades were not updated successfully.")
     print("Click the button to return to the main page.")
 cursor.close()
 

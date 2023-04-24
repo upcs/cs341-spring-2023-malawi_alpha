@@ -1,7 +1,7 @@
 #header-table,
 #grades-section,
 .comm-section {
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
     border: 1px solid #000;
     margin: 0;
@@ -13,7 +13,7 @@ td.header {
 }
 
 #name-section {
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
     background-color: lightgray;
 }
@@ -35,3 +35,29 @@ td.header {
     padding-top: 10px;
     
 }
+
+.parent-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.student-container {
+    display: inline-block;
+    width: calc(50% - 20px);
+    vertical-align: top;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.student-container > table {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .student-container {
+        display: block;
+        width: 100%;
+    }
+}
+
