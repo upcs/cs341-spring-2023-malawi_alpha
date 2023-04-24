@@ -10,6 +10,8 @@ def printTable():
     cursor.execute(sql)
     result = cursor.fetchall()
     queryResults = cursor.rowcount
+    
+    
     print("<form method=\"post\" action=\"test-update.py\">")
     print("<button type=\"submit\" id=\"update-grade-button\" action=\"update-grades.py\">Update Grades</button >")
 
@@ -23,10 +25,12 @@ def printTable():
 
         print("<tr>")
         for col in col_names:
-            if (col == "StudentID"):
-                currID = col_names.index(col)
+            if col == "ClassID":
                 continue
-            elif (col == "FirstName"):
+            # if (col == "StudentID"):
+            #     currID = col_names.index(col)
+            #     continue
+            if (col == "FirstName"):
                 firstName = col_names.index(col)
                 continue
             elif (col == "LastName"):
@@ -38,26 +42,34 @@ def printTable():
         for row in result:
             print("<tr>")
             for col in col_names:
-                if (col == "StudentID" or col == "FirstName"):
+                if col == "ClassID":
+                    continue
+                if (col == "FirstName"):
                     continue
                 elif (col == "LastName"):
                     print("<th><a href=teacher-edit.py?ID=" +
                           str(row[currID]) + ">", row[firstName], " ", row[lastName] + "</a></th>")
                     continue
                 data = str(row[col_names.index(col)])
-                if (data == "None"):
-                    data = "&nbsp;"
-                print("<td><textarea class=\"grade-edit-box\" name=\"" + col +
-                      "\" id=\"" + col + "\" cols=\"30\" rows=\"1\">", data, "</textarea></td>")
+                if (data != "None"):
+                    print("<td><textarea class=\"grade-edit-box\" name=\"" + col +
+                      "\" id=\"" + col + "\" cols=\"30\" rows=\"1\">",data,"</textarea></td>")
+                else:
+                    print("<td><textarea class=\"grade-edit-box\" name=\"" + col +
+                      "\" id=\"" + col + "\" cols=\"30\" rows=\"1\">.</textarea></td>")
             print("</tr>")
         print("</tr>")
 
     print("</table>")
     print("</form >")
+    
     cursor.close()
 
 
 print("Content-type: text/html")
 print("")
 print(open('teacher-view.html').read())
+print("<div class=\"table-container\">")
 printTable()
+print("</div>")
+

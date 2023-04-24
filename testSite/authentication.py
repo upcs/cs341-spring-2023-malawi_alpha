@@ -6,6 +6,7 @@ import cgitb
 import hashlib
 import sys
 
+
 # cgitb.enable()  
 
 # Art=text2art("AUTHEN",font='block',chr_ignore=True)
@@ -55,5 +56,6 @@ if len(totalTokens) == 1:
 		print("\r\n")
 else:
 	print("Content-type: text/html\r")
-	print("Location: http://python.org/\r\n\r")	
+	#print("alert('s')")
+	print("Location: http://10.12.116.141\r\n\r")	
 	c.close()

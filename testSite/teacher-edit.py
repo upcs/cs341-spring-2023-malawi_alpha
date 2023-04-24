@@ -20,18 +20,14 @@ def printGrades():
     cursor.execute(sql)
     result = cursor.fetchall()
     queryResults = cursor.rowcount
+    col_names = [desc[0] for desc in cursor.description]
 
-    print("<form method=POST action=single-printout.py?ID=" + str(id_value) + " "+ "id=printout-form>")
-    print("<div>")
-    print("<button type=submit id=printout-button name=printout-button> View Print Out </button >")
-    print("</div>")
-    print("</form>")
+
+    
     
     if (queryResults > 0):
 
-        # Create dictionary of column names``
-        col_names = [desc[0] for desc in cursor.description]
-
+        # Create dictionary of column names
         for row in result:
             print("<h3 name='name-section'>", row[col_names.index(
                 "FirstName")], " ", row[col_names.index("LastName")], "'s grades</h3>")
@@ -47,7 +43,12 @@ def printGrades():
                 print("<td>", c_name, "</td>")
                 print("<td>", data, "</td>")
                 print("</tr>")
-
+        print("<form method=POST action=single-printout.py?ID=" + str(id_value) + " "+ "id=printout-form>")
+        print("<div>")
+        print("<button type=submit id=printout-button name=printout-button> View Print Out </button >")
+        print("</div>")
+        print("</form>")
+        print("<br>")
     print("<table>")
 
 

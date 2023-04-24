@@ -55,6 +55,7 @@ td,
   vertical-align: top;
 }
 
+
 #control-center #printout-button {
   margin-left: 480px;
 }
@@ -113,6 +114,26 @@ body {
 	padding-left: 20px;
 	display: inline-block;
 }
+
+.grade-edit-box {
+  padding-left: 10px;
+  width: 75%;
+  height: 100%;
+  resize: none;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+.table-container button#update-grade-button {
+  margin-bottom: 10px;
+  margin-left: 0.5%;
+  width: 60px;
+  height: 40px;  
+}
+
+
+
 
 
 
