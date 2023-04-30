@@ -48,18 +48,21 @@
 
 
     <div id="control-center">
-        <textarea id="new-student" cols="30" rows="1"></textarea>
         
-        <form method="post" id="search-student-button" name="search-student-button" class="form-control">
-            <button type="submit" id="search-student-button">Search Student</button>
+        <form method="post" action="search-student.py" id="search-form" name="search-form">
+            <textarea id="search-text" cols="40" rows="1" name="search-text"></textarea>
+            <button type="submit" id="search-button" name="search-button">Search Student</button>
         </form>
 
-        <form method="post" action="validate_token.py" id="token-form" name="token-form">
-            <textarea id="token-text" cols="40" rows="1" name="token-text"></textarea>
-            <button type="submit" id="token-button" name="token-button">Enter Token</button>
+
+        <form method="POST" action="add-student.py">
+            <button type="submit" id="new-student-button" name="new-student-button">New Student</button>    
         </form>
 
-        <button type="submit" id="new-student-button" name="new-student-button">New Student</button>
+        <form method="POST" action="remove-student.py">
+            <button type="submit" id="remove-student-button" name="remove-student-button">Remove Student</button>    
+        </form>
+
         <form method="POST" action="./all-printout.py" class="form-control">
             <button type="submit" id="printout-button" name="printout-button">View PrintOut</button>
         </form>

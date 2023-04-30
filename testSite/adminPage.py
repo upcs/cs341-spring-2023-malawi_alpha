@@ -9,7 +9,6 @@ def printTable():
     cursor.execute(sql)
     result = cursor.fetchall()
     queryResults = cursor.rowcount
-    
    
     
     print("<table width=100%>")
@@ -28,7 +27,7 @@ def printTable():
         print("<th>" + "Teachers Currently Using" + "</th>")
             
         for row in result:
-            teacherID = 0;
+            teacherID = 0
             print("<tr>")
             for i in range(3):		## Token ID Column
                 cursor2 = connection.connect()
@@ -37,21 +36,22 @@ def printTable():
                 result2 = cursor2.fetchall()
                 queryResults2 = cursor2.rowcount
 
-       
-
                 if (i == 0):
                     print("<td>" , row[0] , "</td>")
                 elif (i == 1):	## Classes Column
+                    cursor4 = connection.connect()
+                    classNames = []
+                    for row2 in result2:		## Searches for class name based on classID
+                        sql4 = "SELECT ClassName FROM ClassTbl WHERE ClassID = " + str(row2[1])
+                        cursor4.execute(sql4) 
+                        result4 = cursor4.fetchall()
+                        classNames.append(result4[0][0])
+                        teacherID = row2[2]
+
                     print("<td>")
                     print("<ul>")
-                    for row2 in result2:	## Searches through tokenpermtbl to see what classes it has access to
-                        #cursor4 = connection.connect()
-                        #sql4 = "SELECT * FROM ClassTbl WHERE TeacherID = 2" 
-                        #cursor4.execute(sql4)
-                        #result4 = cursor4.fetchall()
-                        #queryResults4 = cursor4.rowcount
-                        #teacherID = row2[2]
-                        print("<li>" + str(row2[1]) + "</li>")
+                    for name in classNames:	## Searches through tokenpermtbl to see what classes it has access to
+                        print("<li>" + str(name) + "</li>")
                     print("</ul>")
                     print("</td>")
                 elif (i == 2):
@@ -66,6 +66,9 @@ def printTable():
         print("</tr>")    
     print("</table>")
     cursor.close()
+    cursor2.close()
+    cursor3.close()
+    cursor4.close()
     
 print("Content-type: text/html")
 print("")

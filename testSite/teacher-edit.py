@@ -21,10 +21,6 @@ def printGrades():
     result = cursor.fetchall()
     queryResults = cursor.rowcount
     col_names = [desc[0] for desc in cursor.description]
-
-
-    
-    
     if (queryResults > 0):
 
         # Create dictionary of column names

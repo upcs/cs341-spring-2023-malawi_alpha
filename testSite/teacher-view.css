@@ -33,12 +33,12 @@ td,
   margin-bottom: 10px;
 }
 
-#token-form {
+#search-form {
   display: flex;
   flex-wrap: wrap;
 }
 
-#token-text {
+#search-text {
   width: 70%;
   margin-left: 10px;
   resize: none;
@@ -48,7 +48,7 @@ td,
   vertical-align: top;
 }
 
-#token-button {
+#search-button {
   display: inline-block;
   width: 28%;
   margin-left: 2%;

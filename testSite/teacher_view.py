@@ -42,7 +42,7 @@ def printTable(page, rows_per_page):
                 if(col == "FirstName" or col == "ClassID"):
                     continue
                 elif(col == "LastName"):
-                    print("<th><a href=teacher-edit.py?ID=" + str(row[currID]) + ">" , row[firstName] , " " , row[lastName]+ "</a></th>")
+                    print("<th><a href=teacher-edit.py?ID=" + str(row[col_names.index("StudentID")]) + ">" , row[firstName] , " " , row[lastName]+ "</a></th>")
                     continue
                 data = str(row[col_names.index(col)])
                 if(data == "None"):
